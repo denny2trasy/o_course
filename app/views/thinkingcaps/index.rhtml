@@ -1,0 +1,16 @@
+<br />
+<br />
+<div class="clear_float">
+	<%= search_form_for Thinkingcap,:show_course_id,:name%>
+	<%= link_to(t(:create),new_thinkingcap_path(),:class => "popup rightfloat")%>
+</div>
+<br />
+<%= list_table_for(@thinkingcaps) do |item,col|
+	@thinkingcap = item
+	col.add	:name,	in_place_editor_field(:thinkingcap,:name)
+	col.add	:show_scourse_id, in_place_editor_field(:thinkingcap,:show_course_id)
+	col.add :image_url, in_place_editor_field(:thinkingcap,:image_url)
+	col.add :actions,link_to(t(:delete),thinkingcap_path(item),:confirm => "Are you sure?", :method => :delete)
+end %>
+
+<%= paginate @thinkingcaps %>

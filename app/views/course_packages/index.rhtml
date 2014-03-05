@@ -1,0 +1,30 @@
+<br />
+<br />
+<div class="clear_float">
+	<%= search_form_for CoursePackage,:name%>
+	<%= link_to(t(:create),new_customer_path(),:class => "popup rightfloat")%>
+</div>
+<br />
+<%= notice %>
+<%= list_table_for(@course_packages) do |item,col|
+	@course_package = item
+	col.add   :customer,	in_place_editor_field(:course_package,:customer_id,{},{:field_type =>"select", :select_options => Customer.list_select}) 
+	col.add   :customer_name , item.customer.company_name
+	col.add   :name,	in_place_editor_field(:course_package,:name)
+	col.add   :valid_for,	in_place_editor_field(:course_package,:valid_for)
+	col.add   :description,	in_place_editor_field(:course_package,:description)
+	#col.add   :register_code
+	col.add   :number_of_users, item.register_codes.count
+	# col.add   :require_address
+	col.add   :course_type, in_place_editor_field(:course_package,:course_type,{}, {:field_type =>"select", :select_options => ["ellis","cambridge","lets go","business venture"]})
+	col.add	  :eleutian_course,	in_place_editor_field(:course_package,:eleutian_course)
+	col.add	  :thinkingcap_program,	in_place_editor_field(:course_package,:thinkingcap_program)
+	# col.add   :start_at,	item.start_at.try(:to_s,:long)
+	# col.add   :end_at,	item.end_at.try(:to_s,:long)
+	col.add   :item_groups,	link_to("#{item.item_groups.size} Groups",course_package_path(item,:item => "item_groups"))
+	# col.add   :session_credits,	link_to("#{item.session_credits.size} Session Credits",course_package_path(item,:item => "session_credits"))
+	col.add	  :register_codes,	link_to("#{item.register_codes.size} Register Codes",course_package_path(item,:item => "register_codes"))
+	col.add	  :actions, link_to(t(:show),course_package_path(item)) + link_to(t(:delete),course_package_path(item,:customer_id => item.customer_id),:confirm => "Are you sure?",:method => :delete) + link_to(t(:copy),copy_course_package_path(item,:customer_id => item.customer_id))
+end %>
+
+<%= paginate @course_packages %>

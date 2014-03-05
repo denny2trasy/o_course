@@ -1,0 +1,9 @@
+<%= simple_form_for @third_content do |f| %>
+	<%= f.input :item_group_id,	:as => :hidden%>
+	<%= f.input :name %>
+	<%= f.input :position %>
+	<%= f.input :show_content_id %>
+	<%= f.input :show_link %>
+	<%= f.input :thinkingcap_course %>
+  	<%= f.button :submit %>
+<% end %>

@@ -1,0 +1,6 @@
+<h2><%= @course.name %></h2><span><%= link_to("返回>>", item_group_courses_path(@item_group))%></span>
+<ul>
+	<% @units.each do |unit| %>
+	<li><%= link_to unit.name, item_group_course_unit_path(@item_group, @course, unit) %></li>
+	<% end %>
+</ul>

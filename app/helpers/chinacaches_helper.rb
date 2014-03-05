@@ -1,0 +1,2 @@
+module ChinacachesHelper
+end

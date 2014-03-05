@@ -1,0 +1,11 @@
+<div>
+	<%= link_to(t(:create_session_credit),new_session_credit_path(:course_package_id => @package.id))%>
+<div>
+
+<%= list_table_for(@package.session_credits) do |item,col|
+		col.add	:session_type
+		col.add	:quantity
+		col.add :session_length
+		col.add :actions,	link_to(t(:delete),session_credit_path(item,:course_package_id=>@package.id),:confirm => "Are you sure?",:method => :delete)
+end %>	
+	

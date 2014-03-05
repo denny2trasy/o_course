@@ -1,0 +1,16 @@
+<br />
+<br />
+<div class="clear_float">
+	<%= search_form_for Chinacache,:show_chinacache_id,:name%>
+	<%= link_to(t(:create),new_chinacach_path(),:class => "popup rightfloat")%>
+</div>
+<br />
+<%= list_table_for(@chinacaches) do |item,col|
+	@chinacache = item
+	col.add	:name,	in_place_editor_field(:chinacache,:name)
+	col.add	:show_chinacache_id, in_place_editor_field(:chinacache,:show_chinacache_id)
+	col.add :image_url, in_place_editor_field(:chinacache,:image_url)
+	col.add :actions,link_to(t(:delete),chinacach_path(item),:confirm => "Are you sure?", :method => :delete)
+end %>
+
+<%= paginate @chinacaches %>

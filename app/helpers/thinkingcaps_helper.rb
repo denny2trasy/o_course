@@ -1,0 +1,2 @@
+module ThinkingcapsHelper
+end

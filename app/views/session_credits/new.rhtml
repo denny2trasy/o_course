@@ -1,0 +1,7 @@
+<%= simple_form_for @session_credit do |f| %>
+	<%= f.input :course_package_id,	:as => :hidden%>
+	<%= f.input :session_type %>
+	<%= f.input :quantity %>
+	<%= f.input :session_length %>
+  	<%= f.button :submit %>
+<% end %>

@@ -1,0 +1,27 @@
+<h2>课程列表</h2><span><%= link_to("返回>>", item_group_course_path(@item_group, @course))%></span>
+<% form_tag(items_path()) do %>
+<%= t(:total_record, :count=>@lessons.size) %>
+<%= hidden_field_tag(:group_id,@item_group.id)%>
+<%= hidden_field_tag(:content_type,"Lesson")%>
+<div id="list">
+	<%#= items_for_select(@lessons) %>
+	<div class="items_for_select">
+		<ul>
+			<% @lessons.each do |item| %>
+			<li>
+				<%= check_box_tag("content[#{item.id}]", item.id, false) %>
+				<label for="#{item.dom_id}">
+					<%= item.try(:name)%>
+				</label>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+
+</div>
+<input id="all" type="checkbox" onclick="docheck(this.checked);" /> 全选
+
+<%= submit_tag(t(:submit)) %>
+<% end %>
+
+

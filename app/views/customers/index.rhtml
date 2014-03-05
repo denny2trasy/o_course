@@ -1,0 +1,20 @@
+<br />
+<br />
+<div class="clear_float">
+	<%= search_form_for Customer,:short_name%>
+	<%= link_to(t(:create),new_customer_path(),:class => "popup rightfloat")%>
+</div>
+<br />
+<%= list_table_for(@customers) do |item,col|
+	@customer = item
+	col.add	:short_name,	in_place_editor_field(:customer,:short_name)
+	col.add	:company_name, in_place_editor_field(:customer,:company_name)
+	col.add :payment_terms
+	col.add :billing_currency
+	col.add	:packages,	link_to("#{item.course_packages.size} packages",course_packages_path(:q => {:customer_id => item.id}))
+	col.add :actions,	
+			link_to(t(:add_packages),new_course_package_path(:customer_id => item.id),:class => "popup") + 
+			link_to(t(:delete),customer_path(item),:confirm => "Are you sure?", :method => :delete)
+end %>
+
+<%= paginate @customers %>

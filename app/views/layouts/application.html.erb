@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ElCourse</title>
+  <%= stylesheet_link_tag :all %>
+<link href="http://www.idapted.com/assets/stylesheets/frame.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'frame'%>
+  <%= csrf_meta_tag %>
+</head>
+
+<body onLoad="ajaxLoad();">
+
+		<div id="headerbg"></div>
+		<div class="clear_float" id="globalheader">
+			<h1 id="globallogo"><a href="#">Eleutian</a></h1>
+			<div class="clear_float" id="globalnav">
+    			<div class="leftfloat">
+        			<!-- #{user.blank? ? "" : idp_nav_links} -->
+    			</div>
+   				<div class="rightfloat">
+        				<ul class="miscnav">
+        				</ul>
+    			</div>
+			</div>
+		</div>
+		
+		<div>
+			
+			<div class="hmenu2" style="margin-bottom:10px;">
+			        <ul>
+			            <li <% if params[:controller] =~ /customers/ %>class="active"<% end %>><%= link_to t(:customer), customers_path%></li>
+			            <li <% if params[:controller] =~ /course_packages/ %>class="active"<% end %>><%= link_to t(:course_package), course_packages_path%></li>
+						<li <% if params[:controller] =~ /scenarios/ %>class="active"<% end %>><%= link_to t(:scenario), scenarios_path%></li>
+						<li <% if params[:controller] =~ /thinkingcaps/ %>class="active"<% end %>><%= link_to t(:thinkingcap), thinkingcaps_path%></li>
+						<li <% if params[:controller] =~ /chinacaches/ %>class="active"<% end %>><%= link_to t(:chinacache), chinacaches_path%></li>
+			        </ul>
+			</div>	
+		
+			
+			<%= yield %>
+		</div>
+
+</body>
+
+</html>
