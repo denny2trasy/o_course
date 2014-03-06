@@ -28,6 +28,6 @@ group :development, :test do
   gem 'mongrel', '>= 1.2.0.pre2'
   gem 'spork', '0.8.4'
   gem 'ruby-debug19'
-  gem 'autotest', '4.4.6'
+  # gem 'autotest', '4.4.6'
 end
 
