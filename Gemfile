@@ -7,16 +7,16 @@ gem 'unicorn'
 gem 'will_paginate'
 
 # Eco Apps
-gem 'eco_apps_util' , '0.2.0'
-gem 'eco_apps_support' , '0.2.0'
-gem 'eco_apps' , '0.2.0'
-gem 'eco_apps_auth' , '0.2.0'
+# gem 'eco_apps_util' , '0.2.0'
+# gem 'eco_apps_support' , '0.2.0'
+# gem 'eco_apps' , '0.2.0'
+# gem 'eco_apps_auth' , '0.2.0'
 
 # Eco Apps
-# gem 'eco_apps_util' , :git => 'git://github.com/eleutian/eco_apps_util.git'
-# gem 'eco_apps_support' , :git => 'git://github.com/eleutian/eco_apps_support.git'
-# gem 'eco_apps' , :git => 'git://github.com/eleutian/eco_apps.git'
-# gem 'eco_apps_auth' , :git => 'git://github.com/eleutian/eco_apps_auth.git'
+gem 'eco_apps_util' , :git => 'git://github.com/eleutian/eco_apps_util.git'
+gem 'eco_apps_support' , :git => 'git://github.com/eleutian/eco_apps_support.git'
+gem 'eco_apps' , :git => 'git://github.com/eleutian/eco_apps.git'
+gem 'eco_apps_auth' , :git => 'git://github.com/eleutian/eco_apps_auth.git'
 
 gem 'simple_form', '1.3.1'
 gem "jquery-rails"
