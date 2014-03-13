@@ -1,7 +1,7 @@
 class Customer < ActiveRecord::Base
   has_many  :course_packages, :dependent => :destroy
   
-  valid_length :coments,:size=>1200
+  # valid_length :coments,:size=>1200
   
   def self.list_select
     res = []
